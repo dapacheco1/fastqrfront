@@ -1,5 +1,5 @@
 const Login = ()=>{
-
+    window.location = '#/login';
     const view = `
     <form>
         <div class="mb-3">
