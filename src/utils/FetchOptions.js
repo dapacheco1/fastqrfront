@@ -1,6 +1,7 @@
 //fetch options
 const hostname= "https://qrrespuestarapida.dapachecodev.com";
-const token = "Bearer 3|4OIudKedjMAotHaPs33xk7WNOdDvXFmlNLwLDQSY";
+const token =  "Bearer "+localStorage.getItem("token");
+//const token = "Bearer 3|4OIudKedjMAotHaPs33xk7WNOdDvXFmlNLwLDQSY";
 const FetchOptions ={
     
     postContact :`${hostname}/api/v1/persons`,
