@@ -9,6 +9,7 @@ import { FormDesaparecido } from "../pages/FormDesaparecido";
 import { FetchOptions } from "../utils/FetchOptions";
 import { Post } from "../utils/Post";
 import { Login } from "../pages/Login";
+import { RequestToken } from "../utils/RequestToken";
 
 const routes = {
     '/':Welcome,
@@ -61,20 +62,8 @@ const router = async ()=>{
                 let data = new FormData();
                 data.append("email",document.getElementsByName('email')[0].value);
                 data.append("password",document.getElementsByName('password')[0].value);
-                data.append("name","default device");
-                fetch(hostname+'/api/login',{
-                    method:'POST',
-                    body:data,
-                    
-                })
-                .then(response => response.json())
-                .then(data => {
-                    alert("Acceso al sistema: "+data.message);
-                    if(data.token){
-                        localStorage.setItem("token",data.token);
-                    }
-                    
-                })
+                data.append("name",window.navigator.userAgent);
+                RequestToken(hostname+'/api/login',data);
             }
             
         });
