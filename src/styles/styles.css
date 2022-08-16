@@ -1,0 +1,18 @@
+.bg-color{
+    background: #fdf8ff;
+}
+
+.aside-navbar{
+    background: #12131c;
+    color:rgb(206, 206, 206);
+    height: 100vh;
+}
+
+.nav-item{
+    transition: all 250ms ease-in;
+}
+
+.nav-item:hover{
+    background: #38383a;
+    
+}

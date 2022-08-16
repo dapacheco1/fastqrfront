@@ -1,27 +1,6 @@
 const Navbar =()=>{
     let view = `
-        <style>
         
-.bg-color{
-    background: #fdf8ff;
-}
-
-.aside-navbar{
-    background: #12131c;
-    color:rgb(206, 206, 206);
-    height: 100vh;
-}
-
-.nav-item{
-    transition: all 250ms ease-in;
-}
-
-.nav-item:hover{
-    background: #38383a;
-    
-}
-
-        </style>
         <div class="container">
         <ul class="row navbar-nav mt-4">
             <li class="col-12 nav-item">

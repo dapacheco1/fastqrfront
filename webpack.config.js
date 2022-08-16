@@ -1,7 +1,7 @@
 //Configuracion de webpack
 const path  = require('path'); //permite obtener el directorio actual.
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 //exportar configuracion
 module.exports = {
@@ -35,6 +35,10 @@ module.exports = {
                 template:'./public/index.html',//especifico el archivo en el que voy a inyectar archivos,
                 filename:'./index.html',//especifico el archivo que se creara en dist.
             }
-        )
+        ),
+        new CopyWebpackPlugin({
+            patterns: [{ from: './src/styles/styles.css',
+            to: '' }],
+          })
     ]
 };

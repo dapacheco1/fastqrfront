@@ -1,5 +1,5 @@
 const FormDesaparecido = () =>{
-    alert("Una vez generado el codigo QR se resetea los campos del formulario.");
+    
     let nombresD = localStorage.getItem("nombresD")?localStorage.getItem("nombresD"):"";
 
     const view = `

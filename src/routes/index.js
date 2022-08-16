@@ -45,6 +45,41 @@ const router = async ()=>{
     let render = routes[route] ? routes[route]:Error404;
     content.innerHTML = await render();
 
+    //login button
+
+    const login = document.querySelector('.login');
+    if(login){
+        login.addEventListener('click',()=>{
+            let email = document.getElementsByName('email')[0].value;
+            let password = document.getElementsByName('password')[0].value;
+
+            if(email==null || email=="" ||password==null ||password=="" ){
+                alert("Favor rellene todos los campos");
+            }else{
+
+                const hostname= "https://qrrespuestarapida.dapachecodev.com";
+                let data = new FormData();
+                data.append("email",document.getElementsByName('email')[0].value);
+                data.append("password",document.getElementsByName('password')[0].value);
+                data.append("name","default device");
+                fetch(hostname+'/api/login',{
+                    method:'POST',
+                    body:data,
+                    
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert("Acceso al sistema: "+data.message);
+                    if(data.token){
+                        localStorage.setItem("token",data.token);
+                    }
+                    
+                })
+            }
+            
+        });
+    }
+
     //botones next,prev
     const next = document.querySelector('.next');
     const preview = document.querySelector('.preview');
@@ -80,7 +115,7 @@ const router = async ()=>{
             result.setAttribute("style", "display:block");
             QR.makeCode(data);
             
-            localStorage.clear();
+            //localStorage.clear();
         });
 
         //acciones boton atras
@@ -116,7 +151,6 @@ const router = async ()=>{
         });
 
         saveContact.addEventListener('click',async()=>{
-
             let id =  await Post(FetchOptions.postContact,{
                 dni: cedula.value,
                 names: nombres.value,
