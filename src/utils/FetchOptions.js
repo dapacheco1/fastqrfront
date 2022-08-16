@@ -1,6 +1,5 @@
 //fetch options
 const hostname= "https://qrrespuestarapida.dapachecodev.com";
-let token =  "Bearer "+localStorage.getItem("token");
 
 //const token = "Bearer 3|4OIudKedjMAotHaPs33xk7WNOdDvXFmlNLwLDQSY";
 const FetchOptions ={
@@ -8,7 +7,7 @@ const FetchOptions ={
     postDisappeared :`${hostname}/api/v1/disappeareds`,
     header : {
         Accept: "application/json",
-        Authorization: token,
+        Authorization: "",
         "Content-Type": "application/json",
     },
 };

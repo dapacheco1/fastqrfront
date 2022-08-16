@@ -9,8 +9,8 @@ const RequestToken = async(url,data)=>{
         dataResponse = await response.json();
         alert("Acceso al sistema: "+dataResponse.message);
             if(dataResponse.token){
-                localStorage.setItem("token",dataResponse.token);
-                window.location = '#/contacto';
+                localStorage.setItem("token","Bearer "+dataResponse.token);
+                window.location = '#/';
             }
         
     }catch(e){

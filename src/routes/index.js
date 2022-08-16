@@ -114,6 +114,8 @@ const router = async ()=>{
 
         //acciones boton guardar desaparecido
         saveDisappear.addEventListener('click',async()=>{
+            let token = localStorage.getItem("token");
+            FetchOptions.header.Authorization = token;
             let response = await Post(FetchOptions.postDisappeared,{
                 person_id: Number(localStorage.getItem("id")),
                 names: nombresD.value,
@@ -140,7 +142,8 @@ const router = async ()=>{
         });
 
         saveContact.addEventListener('click',async()=>{
-            let header = FetchOptions.header;
+            let token = localStorage.getItem("token");
+            FetchOptions.header.Authorization = token;
             let id =  await Post(FetchOptions.postContact,{
                 dni: cedula.value,
                 names: nombres.value,
@@ -148,7 +151,7 @@ const router = async ()=>{
                 address: direccion.value,
                 phoneNumber: celular.value,
                 status: "A",
-            },header);
+            },FetchOptions.header);
             localStorage.setItem("id",id);
         });
 
