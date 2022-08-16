@@ -140,6 +140,7 @@ const router = async ()=>{
         });
 
         saveContact.addEventListener('click',async()=>{
+            let header = FetchOptions.header;
             let id =  await Post(FetchOptions.postContact,{
                 dni: cedula.value,
                 names: nombres.value,
@@ -147,7 +148,7 @@ const router = async ()=>{
                 address: direccion.value,
                 phoneNumber: celular.value,
                 status: "A",
-            },FetchOptions.header);
+            },header);
             localStorage.setItem("id",id);
         });
 
